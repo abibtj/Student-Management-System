@@ -1,0 +1,36 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29519.181
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "StudentManagement", "StudentManagement", "{46784567-E681-4E40-828D-AD25BF0A0A94}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{A6B5311D-CDFF-4AD6-8EA2-07F358EA3C38}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{D9FA99B2-0C79-4277-9B92-DED7668C82BF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StudentPortal", "src\StudentPortal\StudentPortal.csproj", "{FDA5533A-A2F5-4673-B5B8-7BE0A66E149C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{FDA5533A-A2F5-4673-B5B8-7BE0A66E149C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FDA5533A-A2F5-4673-B5B8-7BE0A66E149C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FDA5533A-A2F5-4673-B5B8-7BE0A66E149C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FDA5533A-A2F5-4673-B5B8-7BE0A66E149C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{A6B5311D-CDFF-4AD6-8EA2-07F358EA3C38} = {46784567-E681-4E40-828D-AD25BF0A0A94}
+		{D9FA99B2-0C79-4277-9B92-DED7668C82BF} = {46784567-E681-4E40-828D-AD25BF0A0A94}
+		{FDA5533A-A2F5-4673-B5B8-7BE0A66E149C} = {A6B5311D-CDFF-4AD6-8EA2-07F358EA3C38}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {F4C5554C-6292-4143-BA5E-5C33FE821F3F}
+	EndGlobalSection
+EndGlobal
