@@ -1,0 +1,26 @@
+<h1 id="tableLabel">Students</h1>
+
+<p *ngIf="!students"><em>Loading...</em></p>
+
+<table class='table table-striped' aria-labelledby="tableLabel" *ngIf="students">
+  <thead>
+    <tr>
+      <th>Reg. Number</th>
+      <th>First Name</th>
+      <th>Middle Name</th>
+      <th>Last Name</th>
+      <th>Gender</th>
+      <th>D.O.B.</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let student of students">
+      <td>{{ student.regNumber }}</td>
+      <td>{{ student.firstName }}</td>
+      <td>{{ student.middleName }}</td>
+      <td>{{ student.lastName }}</td>
+      <td>{{ student.gender }}</td>
+      <td>{{ student.dateOfBirth }}</td>
+    </tr>
+  </tbody>
+</table>
