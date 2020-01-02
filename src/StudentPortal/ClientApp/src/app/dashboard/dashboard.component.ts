@@ -9,8 +9,8 @@ export class DashboardComponent {
   public students: Student[];
 
   constructor(http: HttpClient, @Inject('BASE_URL') baseUrl: string) {
-    //http.get<Student[]>(baseUrl + 'api/students').subscribe(result => {
-    http.get<Student[]>('https://localhost:5001/api/students').subscribe(result => {
+    http.get<Student[]>(baseUrl + 'api/students').subscribe(result => {
+    //http.get<Student[]>('https://localhost:5001/api/students').subscribe(result => {
       this.students = result;
     }, error => console.error(error));
   }

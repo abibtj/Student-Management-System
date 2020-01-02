@@ -1,7 +1,17 @@
-<h1 id="tableLabel">Students</h1>
+<!--<h3 id="tableLabel">Students</h3>-->
 
 <p *ngIf="!students"><em>Loading...</em></p>
 
+<!--<form class="example-form">
+  <mat-form-field class="example-full-width">
+    <input matInput placeholder="Favorite food" value="Sushi">
+  </mat-form-field>
+
+  <mat-form-field class="example-full-width">
+    <textarea matInput placeholder="Leave a comment"></textarea>
+  </mat-form-field>
+</form>-->
+<button mat-button (click)="OpenAddStudentDialog()">Add Student</button>
 <table class='table table-striped' aria-labelledby="tableLabel" *ngIf="students">
   <thead>
     <tr>
@@ -25,12 +35,4 @@
   </tbody>
 </table>
 
-<form class="example-form">
-  <mat-form-field class="example-full-width">
-    <input matInput placeholder="Favorite food" value="Sushi">
-  </mat-form-field>
 
-  <mat-form-field class="example-full-width">
-    <textarea matInput placeholder="Leave a comment"></textarea>
-  </mat-form-field>
-</form>
