@@ -1,5 +1,6 @@
 
 export class Student {
+  Id: string;
   RegNumber: string;
   FirstName: string;
   MiddleName: string;
