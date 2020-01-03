@@ -23,7 +23,9 @@ import { AuthorizeInterceptor } from 'src/api-authorization/authorize.intercepto
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {
   MatButtonModule, MatIconModule, MatTableModule, MatInputModule,
-  MatDialogModule, MatSelectModule, MatDatepickerModule, MatNativeDateModule} from '@angular/material';
+  MatDialogModule, MatSelectModule, MatDatepickerModule,
+  MatNativeDateModule, MatSnackBarModule
+} from '@angular/material';
 
 @NgModule({
   declarations: [
@@ -48,6 +50,7 @@ import {
     MatTableModule,
     MatDialogModule,
     MatSelectModule,
+    MatSnackBarModule,
     ApiAuthorizationModule,
     RouterModule.forRoot([
       { path: '', component: HomeComponent, pathMatch: 'full' },

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { MatDialogRef } from '@angular/material';
+import { MatDialogRef, MatSnackBar } from '@angular/material';
 import { NgForm } from '@angular/forms';
 import { StudentService } from '../../services/student.service';
 
@@ -9,13 +9,9 @@ import { StudentService } from '../../services/student.service';
 })
 export class AddStudentComponent implements OnInit {
 
-  genders: Gender[] = [
-    { value: 'Male', viewValue: 'Male' },
-    { value: 'Female', viewValue: 'Female' }
-  ];
-
   constructor(public dialogBox: MatDialogRef<AddStudentComponent>,
-  private service: StudentService) { }
+    private service: StudentService,
+    private snackBar: MatSnackBar) { }
 
   ngOnInit() {
     this.resetForm();
@@ -40,16 +36,15 @@ export class AddStudentComponent implements OnInit {
   addStudent(form: NgForm) {
     this.service.addStudent(form.value).subscribe(response => {
       this.resetForm(form);
-      alert(response);
+      this.snackBar.open('Student added successfully.', '', {
+        duration: 5000,
+        verticalPosition: 'top'
+      });
     });
   }
 
   closeDialog() {
     this.dialogBox.close();
+    this.service.filter('Register click'); // To refresh students grid automatically
   }
-}
-
-export interface Gender {
-  value: string;
-  viewValue: string;
 }
