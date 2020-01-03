@@ -6,5 +6,6 @@ export class Student {
   MiddleName: string;
   LastName: string;
   Gender: string;
-  DateOfBirth: Date;
+  DateOfBirth: string;
+  //DateOfBirth: Date;
 }

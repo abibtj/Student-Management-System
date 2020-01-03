@@ -8,6 +8,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using StudentPortal.Data;
 using StudentPortal.Models;
+using StudentPortal.Util;
 
 namespace StudentPortal.Controllers
 {
@@ -82,6 +83,7 @@ namespace StudentPortal.Controllers
         [HttpPost]
         public async Task<ActionResult<Student>> PostStudent(Student student)
         {
+            student.RegNumber = RegNumberGenerator.Generate();
             _context.Students.Add(student);
             await _context.SaveChangesAsync();
 

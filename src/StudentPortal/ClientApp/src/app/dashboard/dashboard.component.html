@@ -1,32 +1,46 @@
 
-<form class="example-form">
-  <mat-form-field class="example-full-width">
-    <input matInput placeholder="Favorite food" value="Sushi">
-  </mat-form-field>
+<button mat-raised-button (click)="OpenAddStudentDialog()">Add Student</button>
 
-  <mat-form-field class="example-full-width">
-    <textarea matInput placeholder="Leave a comment"></textarea>
-  </mat-form-field>
-</form>
-
-<!--<button mat-button (click)="OpenAddStudentDialog()">Add Student</button>-->
-
-<div style="overflow:auto;">
-  <div class="mat-elevation-z8">
-    <mat-table [dataSource]="students">
+<div class="mat-elevation-z8">
+  <div style="overflow:auto;">
+    <mat-table [dataSource]="students" class="mat-elevation-z8">
       <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
       <mat-row *matRowDef="let row; columns:displayedColumns;"></mat-row>
 
       <!-- Registration Number Column -->
       <ng-container matColumnDef="RegNumber">
         <mat-header-cell *matHeaderCellDef> Reg. Number </mat-header-cell>
-        <mat-cell *matCellDef="let element"> {{element.RegNumber}} </mat-cell>
+        <mat-cell *matCellDef="let element"> {{element.regNumber}} </mat-cell>
       </ng-container>
 
       <!-- First Name Column -->
       <ng-container matColumnDef="FirstName">
         <mat-header-cell *matHeaderCellDef> First Name </mat-header-cell>
-        <mat-cell *matCellDef="let element"> {{element.FirstName}} </mat-cell>
+        <mat-cell *matCellDef="let element"> {{element.firstName}} </mat-cell>
+      </ng-container>
+
+      <!-- Middle Name Column -->
+      <ng-container matColumnDef="MiddleName">
+        <mat-header-cell *matHeaderCellDef> Middle Name </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.middleName}} </mat-cell>
+      </ng-container>
+
+      <!-- Last Name Column -->
+      <ng-container matColumnDef="LastName">
+        <mat-header-cell *matHeaderCellDef> Last Name </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.lastName}} </mat-cell>
+      </ng-container>
+
+      <!-- Gender Column -->
+      <ng-container matColumnDef="Gender">
+        <mat-header-cell *matHeaderCellDef> Gender </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.gender}} </mat-cell>
+      </ng-container>
+
+      <!-- D.O.B. Column -->
+      <ng-container matColumnDef="DateOfBirth">
+        <mat-header-cell *matHeaderCellDef> Date of Birth </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.dateOfBirth}} </mat-cell>
       </ng-container>
 
       <!-- Options Column -->
@@ -36,7 +50,7 @@
           <button mat-icon-button (click)="onEdit(row)">
             <mat-icon>launch</mat-icon>
           </button>
-          <button mat-icon-button color="warning" (click)="onDelete(row.Id)">
+          <button mat-icon-button color="warn" (click)="onDelete(row.Id)">
             <mat-icon>delete_outline</mat-icon>
           </button>
           </mat-cell>

@@ -1,0 +1,107 @@
+<div class="container">
+  <div class="d-flex justify-content-between">
+    <h5>Add new student</h5>
+
+    <button mat-button (click)="closeDialog()">
+      <mat-icon>close</mat-icon>
+    </button>
+  </div>
+
+  <div style="height:450px;">
+    <form #form="ngForm" (submit)="addStudent(form)" autocomplete="off">
+
+      <!--First Name control-->
+      <div class="row">
+        <mat-form-field>
+          <input matInput required minlenght="2" type="text"
+                 name="FirstName"
+                 placeholder="First Name"
+                 #FirstName="ngModel"
+                 [(ngModel)]="service.formData.FirstName" />
+        </mat-form-field>
+      </div>
+      <div class="row">
+        <div class="text-left text-danger"
+             *ngIf="FirstName.invalid && FirstName.touched">
+          Please enter first name.
+        </div>
+      </div>
+
+      <!--Middle Name control-->
+      <div class="row">
+        <mat-form-field>
+          <input matInput minlenght="2" type="text"
+                 name="MiddleName"
+                 placeholder="Middle Name"
+                 #MiddleName="ngModel"
+                 [(ngModel)]="service.formData.MiddleName" />
+        </mat-form-field>
+      </div>
+
+      <!--Last Name control-->
+      <div class="row">
+        <mat-form-field>
+          <input matInput required minlenght="2" type="text"
+                 name="LastName"
+                 placeholder="Last Name"
+                 #LastName="ngModel"
+                 [(ngModel)]="service.formData.LastName" />
+        </mat-form-field>
+      </div>
+      <div class="row">
+        <div class="text-left text-danger"
+             *ngIf="LastName.invalid && LastName.touched">
+          Please enter last name.
+        </div>
+      </div>
+
+      <!--Gender control-->
+      <div class="row">
+        <mat-form-field>
+          <mat-select required type="text"
+                      name="Gender"
+                      placeholder="Gender"
+                      #Gender="ngModel"
+                      [(ngModel)]="service.formData.Gender">
+            <mat-option value="Male">Male</mat-option>
+            <mat-option value="Female">Female</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+      <div class="row">
+        <div class="text-left text-danger"
+             *ngIf="Gender.invalid && Gender.touched">
+          Please select a gender.
+        </div>
+      </div>
+
+      <!--Date of Birth control-->
+      <div class="row">
+        <mat-form-field>
+          <input matInput required [matDatepicker]="picker" type="text"
+                 name="DateOfBirth"
+                 placeholder="Date of Birth"
+                 #DateOfBirth="ngModel"
+                 [(ngModel)]="service.formData.DateOfBirth" />
+
+          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+      </div>
+      <div class="row">
+        <div class="text-left text-danger"
+             *ngIf="DateOfBirth.invalid && DateOfBirth.touched">
+          Please select date of birth.
+        </div>
+      </div>
+
+
+      <button class="mt-4" mat-raised-button
+              color="primary" type="submit"
+              [disabled]="form.invalid">
+        Add
+      </button>
+
+    </form>
+  </div>
+</div>

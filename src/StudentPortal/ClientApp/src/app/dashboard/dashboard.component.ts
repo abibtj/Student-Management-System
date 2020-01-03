@@ -4,50 +4,40 @@ import { HttpClient } from '@angular/common/http';
 import { MatTableDataSource } from '@angular/material';
 import { StudentService } from '../services/student.service';
 
+import { MatDialog, MatDialogConfig } from '@angular/material';
+import { AddStudentComponent } from './add-student/add-student.component';
+
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html'
 })
 export class DashboardComponent implements OnInit {
 
-  constructor(private studentService: StudentService) { }
+  constructor(private studentService: StudentService,
+    private dialog: MatDialog) { }
 
   students : MatTableDataSource<any>;
-  //displayedColumns: string[] = ['RegNumber', 'FirstName', 'MiddleName', 'LastName', 'Gender', 'DateOfBirth', 'Options']
-  displayedColumns: string[] = ['RegNumber', 'FirstName', 'Options']
+  displayedColumns: string[] = ['RegNumber', 'FirstName', 'MiddleName', 'LastName', 'Gender', 'DateOfBirth', 'Options']
+  //displayedColumns: string[] = ['RegNumber', 'FirstName', 'Options']
 
   ngOnInit() {
-    this.refreshStudentTable();
+    this.loadStudents();
   }
 
-  refreshStudentTable() {
+  loadStudents() {
 
-    //this.studentService.getStudents().subscribe(returnedData => {
-    //  this.students = new MatTableDataSource(returnedData);
-    //});
-
-    var dummyData = [
-      {
-        RegNumber: "123",
-        FirstName: "Abeeb",
-        MiddleName: "Olatunji",
-        LastName: "Liadi",
-        Gender: "Male",
-        DateOfBirth: "23/3/1999"
-      },
-      {
-        RegNumber: "456",
-        FirstName: "Almas",
-        MiddleName: "Olayemi",
-        LastName: "Olatunji",
-        Gender: "Female",
-        DateOfBirth: "23/3/2021"
-      }
-    ]
-
-    this.students = new MatTableDataSource(dummyData);
+    this.studentService.getStudents().subscribe(returnedData => {
+      this.students = new MatTableDataSource(returnedData);
+    });
   }
 
+  OpenAddStudentDialog() {
+    const dialogConfig = new MatDialogConfig();
+    dialogConfig.disableClose = true;
+    dialogConfig.autoFocus = true;
+    dialogConfig.width = "70%";
+    this.dialog.open(AddStudentComponent, dialogConfig)
+  }
 }
 
 

@@ -8,6 +8,7 @@ import { Observable } from 'rxjs';
 })
 export class StudentService {
 
+  formData: Student;
   readonly APIUrl: string;
 
   constructor(private http: HttpClient, @Inject('BASE_URL') baseUrl: string) {
@@ -16,5 +17,9 @@ export class StudentService {
 
   getStudents(): Observable<Student[]> {
     return this.http.get<Student[]>(this.APIUrl);
+  }
+
+  addStudent(student: Student) {
+    return this.http.post(this.APIUrl, student);
   }
 }
