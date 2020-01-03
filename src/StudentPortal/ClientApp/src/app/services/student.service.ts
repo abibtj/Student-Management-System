@@ -28,6 +28,10 @@ export class StudentService {
     return this.http.delete(this.APIUrl + '/' + id );
   }
 
+  editStudent(student: Student) {
+    return this.http.put(this.APIUrl + '/' + student.Id, student);
+  }
+
   private _listeners = new Subject<any>();
   listen(): Observable<any> {
     return this._listeners.asObservable();

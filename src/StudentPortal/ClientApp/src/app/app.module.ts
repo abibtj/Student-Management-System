@@ -14,6 +14,7 @@ import { FetchDataComponent } from './fetch-data/fetch-data.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { StudentService } from './services/student.service';
 import { AddStudentComponent } from './dashboard/add-student/add-student.component';
+import { EditStudentComponent } from './dashboard/edit-student/edit-student.component';
 
 import { ApiAuthorizationModule } from 'src/api-authorization/api-authorization.module';
 import { AuthorizeGuard } from 'src/api-authorization/authorize.guard';
@@ -24,7 +25,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {
   MatButtonModule, MatIconModule, MatTableModule, MatInputModule,
   MatDialogModule, MatSelectModule, MatDatepickerModule,
-  MatNativeDateModule, MatSnackBarModule
+  MatNativeDateModule, MatSnackBarModule, MatSortModule
 } from '@angular/material';
 
 @NgModule({
@@ -35,7 +36,8 @@ import {
     CounterComponent,
     FetchDataComponent,
     DashboardComponent,
-    AddStudentComponent
+    AddStudentComponent,
+    EditStudentComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
@@ -47,6 +49,7 @@ import {
     MatIconModule,
     MatInputModule,
     MatButtonModule,
+    MatSortModule,
     MatTableModule,
     MatDialogModule,
     MatSelectModule,
@@ -64,6 +67,6 @@ import {
     StudentService
   ],
   bootstrap: [AppComponent],
-  entryComponents: [AddStudentComponent]
+  entryComponents: [AddStudentComponent, EditStudentComponent]
 })
 export class AppModule { }

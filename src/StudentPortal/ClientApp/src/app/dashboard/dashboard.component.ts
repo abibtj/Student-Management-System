@@ -1,10 +1,11 @@
-import { Component, Inject, OnInit } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { Component, OnInit, ViewChild } from '@angular/core';
 
-import { MatDialog, MatDialogConfig, MatSnackBar, MatTableDataSource } from '@angular/material';
+import { MatDialog, MatDialogConfig, MatSnackBar, MatTableDataSource, MatSort } from '@angular/material';
 
 import { StudentService } from '../services/student.service';
+import { Student } from '../models/student-model';
 import { AddStudentComponent } from './add-student/add-student.component';
+import { EditStudentComponent } from './edit-student/edit-student.component';
 
 @Component({
   selector: 'app-dashboard',
@@ -23,6 +24,8 @@ export class DashboardComponent implements OnInit {
   students : MatTableDataSource<any>;
   displayedColumns: string[] = ['RegNumber', 'FirstName', 'MiddleName', 'LastName', 'Gender', 'DateOfBirth', 'Options']
 
+  @ViewChild(MatSort, null) sort: MatSort;
+
   ngOnInit() {
     this.loadStudents();
   }
@@ -31,6 +34,7 @@ export class DashboardComponent implements OnInit {
 
     this.studentService.getStudents().subscribe(returnedData => {
       this.students = new MatTableDataSource(returnedData);
+      this.students.sort = this.sort;
     });
   }
 
@@ -42,9 +46,14 @@ export class DashboardComponent implements OnInit {
     this.dialog.open(AddStudentComponent, dialogConfig)
   }
 
-  //editStudent(student: Student) {
-
-  //}
+  openEditStudentDialog(student: Student) {
+    this.studentService.formData = student;
+    const dialogConfig = new MatDialogConfig();
+    dialogConfig.disableClose = true;
+    dialogConfig.autoFocus = true;
+    dialogConfig.width = "40%";
+    this.dialog.open(EditStudentComponent, dialogConfig)
+  }
 
   deleteStudent(id: string) {
     if (confirm('Are you sure you want to delete this student?')) {
@@ -56,6 +65,10 @@ export class DashboardComponent implements OnInit {
         });
       });
     }
+  }
+
+  applyFilter(filterValue: string) {
+    this.students.filter = filterValue.trim().toLocaleLowerCase();
   }
 }
 

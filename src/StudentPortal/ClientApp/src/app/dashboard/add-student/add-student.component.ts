@@ -10,7 +10,7 @@ import { StudentService } from '../../services/student.service';
 export class AddStudentComponent implements OnInit {
 
   constructor(public dialogBox: MatDialogRef<AddStudentComponent>,
-    private service: StudentService,
+    private studentService: StudentService,
     private snackBar: MatSnackBar) { }
 
   ngOnInit() {
@@ -21,7 +21,7 @@ export class AddStudentComponent implements OnInit {
     if (form != null)
       form.resetForm();
 
-    this.service.formData = {
+    this.studentService.formData = {
       Id: '',
       RegNumber: '',
       FirstName: '',
@@ -34,7 +34,7 @@ export class AddStudentComponent implements OnInit {
   }
 
   addStudent(form: NgForm) {
-    this.service.addStudent(form.value).subscribe(response => {
+    this.studentService.addStudent(form.value).subscribe(response => {
       this.resetForm(form);
       this.snackBar.open('Student added successfully.', '', {
         duration: 5000,
@@ -45,6 +45,6 @@ export class AddStudentComponent implements OnInit {
 
   closeDialog() {
     this.dialogBox.close();
-    this.service.filter('Register click'); // To refresh students grid automatically
+    this.studentService.filter('Register click'); // To refresh students grid automatically
   }
 }

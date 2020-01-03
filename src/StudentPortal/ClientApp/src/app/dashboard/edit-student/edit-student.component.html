@@ -1,6 +1,6 @@
 <div class="container">
   <div class="d-flex justify-content-between">
-    <h5>Add new student</h5>
+    <h5>Update student</h5>
 
     <button mat-button (click)="closeDialog()">
       <mat-icon>close</mat-icon>
@@ -8,7 +8,17 @@
   </div>
 
   <div style="height:450px;">
-    <form #form="ngForm" (submit)="addStudent(form)" autocomplete="off">
+    <form #form="ngForm" (submit)="editStudent(form)" autocomplete="off">
+
+      <!--Id control-->
+      <div class="row">
+        <mat-form-field hidden="hidden">
+          <input matInput type="text"
+                 name="Id"
+                 #Id="ngModel"
+                 [(ngModel)]="studentService.formData.Id" />
+        </mat-form-field>
+      </div>
 
       <!--First Name control-->
       <div class="row">
@@ -99,7 +109,7 @@
       <button class="mt-4" mat-raised-button
               color="primary" type="submit"
               [disabled]="form.invalid">
-        Add
+        Update
       </button>
 
     </form>
