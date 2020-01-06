@@ -1,8 +1,10 @@
 import { Inject, Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Student } from '../models/student-model';
+import { StudentsGenderByClass } from '../models/studentsGenderByClass-model';
 import { Observable } from 'rxjs';
 import { Subject } from 'rxjs';
+import { Class } from '../models/class-model';
 
 @Injectable({
   providedIn: 'root'
@@ -18,6 +20,18 @@ export class StudentService {
 
   getStudents(): Observable<Student[]> {
     return this.http.get<Student[]>(this.APIUrl);
+  }
+
+  getStudentsGender(): Observable<number[]> {
+    return this.http.get<number[]>(this.APIUrl + '/GetStudentsGender');
+  }
+
+  getStudentsGenderByClass(): Observable<StudentsGenderByClass[]> {
+    return this.http.get<StudentsGenderByClass[]>(this.APIUrl + '/GetStudentsGenderByClass');
+  }
+
+  getClasses(): Observable<Class[]> {
+    return this.http.get<Class[]>(this.APIUrl + '/GetClasses');
   }
 
   addStudent(student: Student) {

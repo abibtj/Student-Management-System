@@ -3,6 +3,7 @@ import { MatDialogRef, MatSnackBar } from '@angular/material';
 import { NgForm } from '@angular/forms';
 import { StudentService } from '../../services/student.service';
 import { Student } from '../../models/student-model';
+import { Class } from '../../models/class-model';
 
 @Component({
   selector: 'app-edit-student',
@@ -15,7 +16,16 @@ export class EditStudentComponent implements OnInit {
     private snackBar: MatSnackBar) {
   }
 
+  public classes: Class[];
+
   ngOnInit() {
+    this.getClasses();
+  }
+
+  getClasses() {
+    this.studentService.getClasses().subscribe(returnedData => {
+      this.classes = returnedData;
+    });
   }
 
   editStudent(form: NgForm) {

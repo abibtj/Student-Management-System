@@ -75,6 +75,27 @@
         </div>
       </div>
 
+      <!--ClassId control-->
+      <div class="row">
+        <mat-form-field>
+          <mat-select required type="text"
+                      name="ClassId"
+                      placeholder="Class"
+                      #ClassId="ngModel"
+                      [(ngModel)]="studentService.formData.ClassId">
+            <mat-option *ngFor ="let class of classes" [value]="class.id">
+            {{class.name}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+      <div class="row">
+        <div class="text-left text-danger"
+             *ngIf="ClassId.invalid && ClassId.touched">
+          Please select a class.
+        </div>
+      </div>
+
       <!--Date of Birth control-->
       <div class="row">
         <mat-form-field>

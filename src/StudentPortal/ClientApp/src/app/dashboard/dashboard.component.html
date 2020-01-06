@@ -1,5 +1,57 @@
 
-  <div>
+<div class="section-container">
+  <div class="cards">
+    <div class="card-deck">
+      <div class="card mb-3 shadow card-theme">
+        <div class="card-header card-header-theme">
+          <h5>Total Number of Students</h5>
+        </div>
+        <div class="card-body">
+          <div class="dashbord blue-background">
+            <div class="title-section">
+              <p><strong>Students</strong></p>
+            </div>
+            <div class="icon-text-section">
+              <div class="icon-section">
+                <i class="fa fa-road" aria-hidden="true"></i>
+              </div>
+              <div class="text-section">
+                <h1><span class="counter">{{totalstudent}}</span></h1>
+                <span>Total Number</span>
+              </div>
+              <div style="clear:both;"></div>
+            </div>
+            <div class="detail-section">
+              <div class="centred-item">
+                <p>View Details</p>
+                <i class="fa fa-chevron-circle-right" aria-hidden="true"></i>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card mb-3 shadow card-theme">
+        <div class="card-header card-header-theme">
+          <h5>Gender Distribution</h5>
+        </div>
+        <div class="card-body">
+          <app-pie-chart></app-pie-chart>
+        </div>
+      </div>
+      <div class="card mb-3 shadow card-theme">
+        <div class="card-header card-header-theme">
+          <h5>Gender Distribution by Class</h5>
+        </div>
+        <div class="card-body">
+          <app-bar-chart></app-bar-chart>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<br />
+  <div class="centred-div-flex-container">
     <div>
       <button mat-raised-button (click)="OpenAddStudentDialog()">Add Student</button>
     </div>
@@ -13,7 +65,7 @@
 
 <div class="mat-elevation-z8">
   <div style="overflow:auto;">
-    <mat-table [dataSource]="students" matSort class="mat-elevation-z8">
+    <mat-table [dataSource]="students" matSort>
       <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
       <mat-row *matRowDef="let row; columns:displayedColumns;"></mat-row>
 
@@ -45,6 +97,12 @@
       <ng-container matColumnDef="Gender">
         <mat-header-cell *matHeaderCellDef mat-sort-header> Gender </mat-header-cell>
         <mat-cell *matCellDef="let element"> {{element.gender}} </mat-cell>
+      </ng-container>
+
+      <!-- Class Column -->
+      <ng-container matColumnDef="ClassName">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> Class </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.className}} </mat-cell>
       </ng-container>
 
       <!-- D.O.B. Column -->

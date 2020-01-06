@@ -131,6 +131,17 @@ namespace StudentPortal.Util
                 Parent = mrAzeez
             };
 
+            var azeez3 = new Student
+            {
+                RegNumber = RegNumberGenerator.Generate(),
+                FirstName = "Abdul",
+                MiddleName = "Olanrewaju",
+                LastName = "Azeez",
+                Gender = "Male",
+                DateOfBirth = DateTime.Now,
+                Parent = mrAzeez
+            };
+
             var olatunji = new Student
             {
                 RegNumber = RegNumberGenerator.Generate(),
@@ -142,7 +153,7 @@ namespace StudentPortal.Util
                 Parent = mrOlatunji
             };
             
-            var almas = new Student
+            var salimon1 = new Student
             {
                 RegNumber = RegNumberGenerator.Generate(),
                 FirstName = "Almas",
@@ -153,13 +164,36 @@ namespace StudentPortal.Util
                 Parent = mrsSalimon
             };
 
-            var grace = new Student
+            var salimon2 = new Student
+            {
+                RegNumber = RegNumberGenerator.Generate(),
+                FirstName = "Ayman",
+                MiddleName = "Alabi",
+                LastName = "Olatunji",
+                Gender = "Male",
+                DateOfBirth = DateTime.Now,
+                Parent = mrsSalimon
+            };
+
+            var grace1 = new Student
             {
                 RegNumber = RegNumberGenerator.Generate(),
                 FirstName = "Gwen",
                 MiddleName = "Ngozi",
                 LastName = "Ale",
                 Gender = "Female",
+                DateOfBirth = DateTime.Now,
+                Parent = mrsGrace,
+                Address = oyo
+            };
+
+            var grace2 = new Student
+            {
+                RegNumber = RegNumberGenerator.Generate(),
+                FirstName = "Chukwuma",
+                MiddleName = "Chidozie",
+                LastName = "Ale",
+                Gender = "Male",
                 DateOfBirth = DateTime.Now,
                 Parent = mrsGrace,
                 Address = oyo
@@ -172,21 +206,42 @@ namespace StudentPortal.Util
             {
                 Name = "Primary 1",
                 Category = "Primary",
-                Students = new List<Student> { azeez1, grace }
+                Students = new List<Student> { azeez1, grace1 }
             };
 
             var pry2 = new Class
             {
                 Name = "Primary 2",
                 Category = "Primary",
-                Students = new List<Student> { azeez2, almas }
+                Students = new List<Student> { azeez2, salimon1 }
             };
 
-            var nur1 = new Class
+            var pry3 = new Class
             {
-                Name = "Nursery 1",
-                Category = "Nursery",
+                Name = "Primary 3",
+                Category = "Primary",
                 Students = new List<Student> { olatunji }
+            };
+
+            var pry4 = new Class
+            {
+                Name = "Primary 4",
+                Category = "Primary",
+                Students = new List<Student> { salimon2 }
+            };
+
+            var pry5 = new Class
+            {
+                Name = "Primary 5",
+                Category = "Primary",
+                Students = new List<Student> { grace2 }
+            };
+
+            var pry6 = new Class
+            {
+                Name = "Primary 6",
+                Category = "Primary",
+                Students = new List<Student> { azeez3 }
             };
 
             #endregion
@@ -217,7 +272,7 @@ namespace StudentPortal.Util
             };
             #endregion
 
-            var classes = new List<Class> { nur1, pry1, pry2};
+            var classes = new List<Class> { pry1, pry2, pry3, pry4, pry5, pry6};
             _context.Classes.AddRange(classes);
 
             var appUser = new AppUser

@@ -21,8 +21,9 @@ export class DashboardComponent implements OnInit {
     });
   }
 
-  students : MatTableDataSource<any>;
-  displayedColumns: string[] = ['RegNumber', 'FirstName', 'MiddleName', 'LastName', 'Gender', 'DateOfBirth', 'Options']
+  students: MatTableDataSource<any>;
+  totalstudent: number;
+  displayedColumns: string[] = ['RegNumber', 'FirstName', 'MiddleName', 'LastName', 'Gender', 'ClassName', 'DateOfBirth', 'Options']
 
   @ViewChild(MatSort, null) sort: MatSort;
 
@@ -34,6 +35,7 @@ export class DashboardComponent implements OnInit {
 
     this.studentService.getStudents().subscribe(returnedData => {
       this.students = new MatTableDataSource(returnedData);
+      this.totalstudent = returnedData.length;
       this.students.sort = this.sort;
     });
   }

@@ -28,6 +28,11 @@ import {
   MatNativeDateModule, MatSnackBarModule, MatSortModule
 } from '@angular/material';
 
+//Ng2-Chart Stuff
+import { ChartsModule } from 'ng2-charts';
+import { BarChartComponent } from './dashboard/charts/bar-chart/bar-chart.component';
+import { PieChartComponent } from './dashboard/charts/pie-chart/pie-chart.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -37,12 +42,15 @@ import {
     FetchDataComponent,
     DashboardComponent,
     AddStudentComponent,
-    EditStudentComponent
+    EditStudentComponent,
+    BarChartComponent,
+    PieChartComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
     HttpClientModule,
     FormsModule,
+    ChartsModule,
     BrowserAnimationsModule,
     MatDatepickerModule,
     MatNativeDateModule,

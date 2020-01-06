@@ -6,6 +6,7 @@ namespace StudentPortal.Dto
     {
         public string RegNumber { get; set; }
 
+        public string ClassName { get; set; }
         public Guid? ClassId { get; set; }
         public virtual ClassDto Class { get; set; }
         public Guid? ParentId { get; set; }

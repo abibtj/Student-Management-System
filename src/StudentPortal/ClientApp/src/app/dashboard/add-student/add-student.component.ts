@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { MatDialogRef, MatSnackBar } from '@angular/material';
 import { NgForm } from '@angular/forms';
 import { StudentService } from '../../services/student.service';
+import { Class } from '../../models/class-model';
 
 @Component({
   selector: 'app-add-student',
@@ -13,8 +14,17 @@ export class AddStudentComponent implements OnInit {
     private studentService: StudentService,
     private snackBar: MatSnackBar) { }
 
+  public classes: Class[];
+
   ngOnInit() {
     this.resetForm();
+    this.getClasses();
+  }
+
+  getClasses() {
+    this.studentService.getClasses().subscribe(returnedData => {
+      this.classes = returnedData;
+    });
   }
 
   resetForm(form?: NgForm) {
@@ -28,8 +38,9 @@ export class AddStudentComponent implements OnInit {
       MiddleName: '',
       LastName: '',
       Gender: '',
-      DateOfBirth: Date.now.toString()
-      //DateOfBirth: Date.parse('01/01/2000')
+      ClassId: '',
+      ClassName: '',
+      DateOfBirth: null
     }
   }
 
