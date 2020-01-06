@@ -23,36 +23,44 @@
       <!--First Name control-->
       <div class="row">
         <mat-form-field>
-          <input matInput required minlenght="2" type="text" name="FirstName" placeholder="First Name" #FirstName="ngModel"
-            [(ngModel)]="studentService.formData.FirstName" />
-          <mat-icon matSuffix>person</mat-icon>
+          <input matInput required minlenght="2" type="text"
+                 name="FirstName"
+                 placeholder="First Name"
+                 #FirstName="ngModel"
+                 [(ngModel)]="studentService.formData.FirstName" />
         </mat-form-field>
       </div>
       <div class="row">
-        <div class="text-left text-danger" *ngIf="FirstName.invalid && FirstName.touched">
+        <div class="text-left text-danger"
+             *ngIf="FirstName.invalid && FirstName.touched">
           Please enter first name.
         </div>
       </div>
-      
+
       <!--Middle Name control-->
       <div class="row">
         <mat-form-field>
-          <input matInput minlenght="2" type="text" name="MiddleName" placeholder="Middle Name" #MiddleName="ngModel"
-            [(ngModel)]="studentService.formData.MiddleName" />
-          <mat-icon matSuffix>person_outline</mat-icon>
+          <input matInput minlenght="2" type="text"
+                 name="MiddleName"
+                 placeholder="Middle Name"
+                 #MiddleName="ngModel"
+                 [(ngModel)]="studentService.formData.MiddleName" />
         </mat-form-field>
       </div>
-      
+
       <!--Last Name control-->
       <div class="row">
         <mat-form-field>
-          <input matInput required minlenght="2" type="text" name="LastName" placeholder="Last Name" #LastName="ngModel"
-            [(ngModel)]="studentService.formData.LastName" />
-          <mat-icon matSuffix>person</mat-icon>
+          <input matInput required minlenght="2" type="text"
+                 name="LastName"
+                 placeholder="Last Name"
+                 #LastName="ngModel"
+                 [(ngModel)]="studentService.formData.LastName" />
         </mat-form-field>
       </div>
       <div class="row">
-        <div class="text-left text-danger" *ngIf="LastName.invalid && LastName.touched">
+        <div class="text-left text-danger"
+             *ngIf="LastName.invalid && LastName.touched">
           Please enter last name.
         </div>
       </div>

@@ -25,10 +25,7 @@ export class DashboardComponent implements OnInit {
   totalstudent: number;
   displayedColumns: string[] = ['RegNumber', 'FirstName', 'MiddleName', 'LastName', 'Gender', 'ClassName', 'DateOfBirth', 'Options']
 
-  @ViewChild(MatSort, { static: false }) sort: MatSort;;
-  //@ViewChild(MatSort, { static: false }) set content(sort: MatSort) {
-  //  this.students.sort = sort;
-  //}
+  @ViewChild(MatSort, null) sort: MatSort;
   @ViewChild(MatPaginator, null) paginator: MatPaginator;
 
   ngOnInit() {

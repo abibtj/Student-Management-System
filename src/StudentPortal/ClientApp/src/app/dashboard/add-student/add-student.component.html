@@ -13,13 +13,16 @@
       <!--First Name control-->
       <div class="row">
         <mat-form-field>
-          <input matInput required minlenght="2" type="text" name="FirstName" placeholder="First Name"
-            #FirstName="ngModel" [(ngModel)]="studentService.formData.FirstName" />
-          <mat-icon matSuffix>person</mat-icon>
+          <input matInput required minlenght="2" type="text"
+                 name="FirstName"
+                 placeholder="First Name"
+                 #FirstName="ngModel"
+                 [(ngModel)]="studentService.formData.FirstName" />
         </mat-form-field>
       </div>
       <div class="row">
-        <div class="text-left text-danger" *ngIf="FirstName.invalid && FirstName.touched">
+        <div class="text-left text-danger"
+             *ngIf="FirstName.invalid && FirstName.touched">
           Please enter first name.
         </div>
       </div>
@@ -27,22 +30,27 @@
       <!--Middle Name control-->
       <div class="row">
         <mat-form-field>
-          <input matInput minlenght="2" type="text" name="MiddleName" placeholder="Middle Name" #MiddleName="ngModel"
-            [(ngModel)]="studentService.formData.MiddleName" />
-          <mat-icon matSuffix>person_outline</mat-icon>
+          <input matInput minlenght="2" type="text"
+                 name="MiddleName"
+                 placeholder="Middle Name"
+                 #MiddleName="ngModel"
+                 [(ngModel)]="studentService.formData.MiddleName" />
         </mat-form-field>
       </div>
 
       <!--Last Name control-->
       <div class="row">
         <mat-form-field>
-          <input matInput required minlenght="2" type="text" name="LastName" placeholder="Last Name" #LastName="ngModel"
-            [(ngModel)]="studentService.formData.LastName" />
-          <mat-icon matSuffix>person</mat-icon>
+          <input matInput required minlenght="2" type="text"
+                 name="LastName"
+                 placeholder="Last Name"
+                 #LastName="ngModel"
+                 [(ngModel)]="studentService.formData.LastName" />
         </mat-form-field>
       </div>
       <div class="row">
-        <div class="text-left text-danger" *ngIf="LastName.invalid && LastName.touched">
+        <div class="text-left text-danger"
+             *ngIf="LastName.invalid && LastName.touched">
           Please enter last name.
         </div>
       </div>
@@ -50,15 +58,19 @@
       <!--Gender control-->
       <div class="row">
         <mat-form-field>
-          <mat-select required type="text" name="Gender" placeholder="Gender" #Gender="ngModel"
-            [(ngModel)]="studentService.formData.Gender">
+          <mat-select required type="text"
+                      name="Gender"
+                      placeholder="Gender"
+                      #Gender="ngModel"
+                      [(ngModel)]="studentService.formData.Gender">
             <mat-option value="Male">Male</mat-option>
             <mat-option value="Female">Female</mat-option>
           </mat-select>
         </mat-form-field>
       </div>
       <div class="row">
-        <div class="text-left text-danger" *ngIf="Gender.invalid && Gender.touched">
+        <div class="text-left text-danger"
+             *ngIf="Gender.invalid && Gender.touched">
           Please select a gender.
         </div>
       </div>
@@ -66,16 +78,20 @@
       <!--ClassId control-->
       <div class="row">
         <mat-form-field>
-          <mat-select required type="text" name="ClassId" placeholder="Class" #ClassId="ngModel"
-            [(ngModel)]="studentService.formData.ClassId">
-            <mat-option *ngFor="let class of classes" [value]="class.id">
-              {{class.name}}
+          <mat-select required type="text"
+                      name="ClassId"
+                      placeholder="Class"
+                      #ClassId="ngModel"
+                      [(ngModel)]="studentService.formData.ClassId">
+            <mat-option *ngFor ="let class of classes" [value]="class.id">
+            {{class.name}}
             </mat-option>
           </mat-select>
         </mat-form-field>
       </div>
       <div class="row">
-        <div class="text-left text-danger" *ngIf="ClassId.invalid && ClassId.touched">
+        <div class="text-left text-danger"
+             *ngIf="ClassId.invalid && ClassId.touched">
           Please select a class.
         </div>
       </div>
@@ -83,21 +99,27 @@
       <!--Date of Birth control-->
       <div class="row">
         <mat-form-field>
-          <input matInput required [matDatepicker]="picker" type="text" name="DateOfBirth" placeholder="Date of Birth"
-            #DateOfBirth="ngModel" [(ngModel)]="studentService.formData.DateOfBirth" />
+          <input matInput required [matDatepicker]="picker" type="text"
+                 name="DateOfBirth"
+                 placeholder="Date of Birth"
+                 #DateOfBirth="ngModel"
+                 [(ngModel)]="studentService.formData.DateOfBirth" />
 
           <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
           <mat-datepicker #picker></mat-datepicker>
         </mat-form-field>
       </div>
       <div class="row">
-        <div class="text-left text-danger" *ngIf="DateOfBirth.invalid && DateOfBirth.touched">
+        <div class="text-left text-danger"
+             *ngIf="DateOfBirth.invalid && DateOfBirth.touched">
           Please select date of birth.
         </div>
       </div>
 
 
-      <button class="mt-4" mat-raised-button color="primary" type="submit" [disabled]="form.invalid">
+      <button class="mt-4" mat-raised-button
+              color="primary" type="submit"
+              [disabled]="form.invalid">
         Add
       </button>
 
