@@ -40,7 +40,7 @@ namespace StudentPortal
                 options.UseSqlServer(
                     Configuration.GetConnectionString("student-portal-db")));
 
-            services.AddDefaultIdentity<AppUser>(options => options.SignIn.RequireConfirmedAccount = true)
+            services.AddDefaultIdentity<AppUser>(options => options.SignIn.RequireConfirmedAccount = false)
                 .AddEntityFrameworkStores<StudentPortalDbContext>();
 
             services.AddIdentityServer()

@@ -13,7 +13,7 @@ using StudentPortal.Dto;
 
 namespace StudentPortal.Controllers
 {
-    //[Authorize]
+    [Authorize]
     [Route("api/[controller]")]
     [ApiController]
     public class StudentsController : ControllerBase

@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 
-import { MatDialog, MatDialogConfig, MatSnackBar, MatTableDataSource, MatSort } from '@angular/material';
+import { MatDialog, MatDialogConfig, MatSnackBar, MatTableDataSource, MatSort, MatPaginator } from '@angular/material';
 
 import { StudentService } from '../services/student.service';
 import { Student } from '../models/student-model';
@@ -26,6 +26,7 @@ export class DashboardComponent implements OnInit {
   displayedColumns: string[] = ['RegNumber', 'FirstName', 'MiddleName', 'LastName', 'Gender', 'ClassName', 'DateOfBirth', 'Options']
 
   @ViewChild(MatSort, null) sort: MatSort;
+  @ViewChild(MatPaginator, null) paginator: MatPaginator;
 
   ngOnInit() {
     this.loadStudents();
@@ -37,6 +38,7 @@ export class DashboardComponent implements OnInit {
       this.students = new MatTableDataSource(returnedData);
       this.totalstudent = returnedData.length;
       this.students.sort = this.sort;
+      this.students.paginator = this.paginator;
     });
   }
 
