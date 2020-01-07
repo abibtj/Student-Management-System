@@ -15,8 +15,8 @@ export class BarChartComponent implements OnInit {
 
   constructor(private studentService: StudentService) {
   }
-
-  public barChartData: any[] = [];
+  
+  public barChartData: any[] = [{data: []}];
   public barChartLabels: string[] = BARCHART_LABELS;
   public barChartType = 'bar';
   public barChartLegend = true;
