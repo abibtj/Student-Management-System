@@ -15,6 +15,7 @@ using StudentPortal.Util;
 using Microsoft.AspNetCore.Identity.UI.Services;
 using System;
 using AutoMapper;
+using StudentPortal.Swagger;
 
 namespace StudentPortal
 {
@@ -45,7 +46,9 @@ namespace StudentPortal
 
             services.AddIdentityServer()
                 .AddApiAuthorization<AppUser, StudentPortalDbContext>();
-            
+
+            //services.AddSwaggerDocs();
+
             services.AddTransient<IStudentPortalDbInitialiser, StudentPortalDbInitialiser>();
             services.AddSingleton<IEmailSender, EmailSender>();
 
@@ -96,6 +99,7 @@ namespace StudentPortal
                 app.UseHsts();
             }
 
+            //app.UseSwaggerDocs();
             app.UseHttpsRedirection();
             app.UseStaticFiles();
             if (!env.IsDevelopment())

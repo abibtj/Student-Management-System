@@ -75,9 +75,6 @@ namespace StudentPortal.Areas.Identity.Pages.Account
             //ExternalLogins = (await _signInManager.GetExternalAuthenticationSchemesAsync()).ToList();
             if (ModelState.IsValid)
             {
-                ///////////////////////////////////////
-                _logger.LogInformation("modelstate is valid");
-
                 var user = new AppUser { UserName = Input.Email, Email = Input.Email };
                 var result = await _userManager.CreateAsync(user, Input.Password);
                 if (result.Succeeded)
@@ -94,16 +91,9 @@ namespace StudentPortal.Areas.Identity.Pages.Account
 
                     try
                     {
-                        ///////////////////////////////////////
-                        _logger.LogInformation("invoking email sender...");
-
                         //await _emailSender.SendEmailAsync(Input.Email, "Confirm your email", $"Please confirm your account by clicking <a href='{callbackUrl}'>here</a>.");
                         await _emailSender.SendEmailAsync(Input.Email, "Confirm your email",
                        $"Please confirm your account by clicking <a href='{HtmlEncoder.Default.Encode(callbackUrl)}'>here</a>.");
-
-                        ///////////////////////////////////////
-                        _logger.LogInformation("email sent successfully");
-
                     }
                     catch (System.Net.Http.HttpRequestException ex) // email confirmation message not sent, remove user
                     {
